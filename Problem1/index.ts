@@ -1,5 +1,5 @@
 //Problem 1: Three ways to sum to n
-const n: number = 10;
+const n = 10;
 //1. Use For
 const sumUseFor = (n: number) => {
   let sum = 0;
