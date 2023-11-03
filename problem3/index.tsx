@@ -19,6 +19,7 @@ const WalletPage: React.FC<Props> = (props: Props) => {
   const prices = usePrices();
 
   /* Use of any type results in loss of control over the data type. Instead, we should define explicit interfaces for objects*/
+  /* Should put outside component */
   const getPriority = (blockchain: any): number => {
     switch (blockchain) {
       case "Osmosis":

@@ -9,27 +9,27 @@ interface FormattedWalletBalance {
 
 interface Props extends BoxProps {}
 
+const getPriority = (blockchain: string): number => {
+  switch (blockchain) {
+    case "Osmosis":
+      return 100;
+    case "Ethereum":
+      return 50;
+    case "Arbitrum":
+      return 30;
+    case "Zilliqa":
+      return 20;
+    case "Neo":
+      return 20;
+    default:
+      return -99;
+  }
+};
+
 const WalletPage: React.FC<Props> = (props: Props) => {
   const { children, ...rest } = props;
   const balances = useWalletBalances();
   const prices = usePrices();
-
-  const getPriority = (blockchain: string): number => {
-    switch (blockchain) {
-      case "Osmosis":
-        return 100;
-      case "Ethereum":
-        return 50;
-      case "Arbitrum":
-        return 30;
-      case "Zilliqa":
-        return 20;
-      case "Neo":
-        return 20;
-      default:
-        return -99;
-    }
-  };
 
   const sortedBalances = useMemo(() => {
     return balances
