@@ -3,6 +3,7 @@ import { Button, Flex, Form, Input, Select } from "antd";
 
 import { TYPE_MONEY } from "./config/constant";
 import convertApi from "./services/api/convert";
+import "./App.css";
 
 const App = () => {
   const [valueIn, setValueIn] = useState(0);
@@ -36,12 +37,20 @@ const App = () => {
   };
 
   return (
-    <Flex align="center" justify="center" style={{ minHeight: "100vh" }}>
+    <Flex
+      align="center"
+      justify="center"
+      style={{ minHeight: "100vh", background: "#56baed" }}
+    >
       <Form
         name="customized_form_controls"
         layout="vertical"
         onFinish={onFinish}
+        className="fadeInDown form"
       >
+        <Form.Item>
+          <h1 className="header">Currency conversion</h1>
+        </Form.Item>
         <Form.Item name="price" label="Convert from">
           <span>
             <Input
@@ -94,7 +103,7 @@ const App = () => {
               width: "100%",
             }}
           >
-            Submit
+            Convert
           </Button>
         </Form.Item>
       </Form>
